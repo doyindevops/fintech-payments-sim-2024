@@ -6,7 +6,7 @@ Resources:
   TransactionsTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: transactions
+      TableName: !Sub transactions-${AWS::StackName}
       AttributeDefinitions:
         - AttributeName: transaction_id
           AttributeType: S
@@ -23,17 +23,16 @@ Resources:
       CodeUri: .
       Environment:
         Variables:
-          TRANSACTIONS_TABLE: transactions
+          TRANSACTIONS_TABLE: !Sub transactions-${AWS::StackName}
       Policies:
         - DynamoDBCrudPolicy:
-            TableName: transactions
+            TableName: !Sub transactions-${AWS::StackName}
       Events:
         PaymentAPI:
           Type: Api
           Properties:
             Path: /pay
             Method: post
-            
 
 Outputs:
   PaymentApiUrl:
