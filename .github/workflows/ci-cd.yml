@@ -28,7 +28,7 @@ jobs:
       - name: Deploy with AWS SAM
         run: |
           pip install aws-sam-cli
-          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset \
+          sam deploy --region us-east-1 --no-confirm-changeset --no-fail-on-empty-changeset \
             --stack-name fintech-payments-sim --capabilities CAPABILITY_IAM
 
   zap_scan:
