@@ -1,0 +1,45 @@
+name: CI/CD Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: pytest tests/
+
+  deploy:
+    needs: build-test
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy with AWS SAM
+        run: |
+          pip install aws-sam-cli
+          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset \
+            --stack-name fintech-payments-sim --capabilities CAPABILITY_IAM
+
+  zap_scan:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: OWASP ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.11.0
+        with:
+          target: 'https://b5klyi27g5.execute-api.us-east-1.amazonaws.com/Prod/pay'
+
+      - name: Check for vulnerabilities
+        run: |
+          if grep -q "FAIL-NEW" owasp-zap-report.txt; then
+            echo "Vulnerabilities found! Failing build."
+            exit 1
+          fi

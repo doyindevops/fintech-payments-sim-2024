@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  TransactionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: transactions
+      AttributeDefinitions:
+        - AttributeName: transaction_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: transaction_id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+
+  PaymentFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambdas/process_payment.lambda_handler
+      Runtime: python3.12
+      CodeUri: .
+      Environment:
+        Variables:
+          TRANSACTIONS_TABLE: transactions
+      Events:
+        PaymentAPI:
+          Type: Api
+          Properties:
+            Path: /pay
+            Method: post
