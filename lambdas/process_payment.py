@@ -27,7 +27,9 @@ def lambda_handler(event, context):
             'body': json.dumps({'transaction_id': transaction_id, 'status': 'success'})
         }
     except Exception as e:
-        print("Lambda error:",)
+        import traceback
+        print("Lambda error:", repr(e))
+        traceback.print_exc()
         return {
             'statusCode': 500,
             'body': json.dumps({'error': str(e)})
