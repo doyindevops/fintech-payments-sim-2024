@@ -1,19 +1,24 @@
 import json
 import sys
 import os
-import types
 
 # Ensure we can import process_payment
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'lambdas')))
 import process_payment
 
 def test_successful_payment(monkeypatch):
-    # Mock table object
+    # Mock the DynamoDB Table and resource
     class FakeTable:
         def put_item(self, Item):
             return {"ResponseMetadata": {"HTTPStatusCode": 200}}
 
-    # Patch process_payment.table to be a FakeTable instance
+    class FakeDynamoResource:
+        def Table(self, name):
+            return FakeTable()
+
+    # Patch boto3.resource in the process_payment module
+    monkeypatch.setattr(process_payment, "dynamodb", FakeDynamoResource())
+    # Patch table to use the fake one
     monkeypatch.setattr(process_payment, "table", FakeTable())
 
     # Prepare test event
