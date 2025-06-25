@@ -1,5 +1,7 @@
-import json
-from lambdas import process_payment
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'lambdas')))
+import process_payment
 
 def test_successful_payment(monkeypatch):
     # Mock the DynamoDB table put_item method
