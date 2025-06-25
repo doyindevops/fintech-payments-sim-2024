@@ -1,13 +1,11 @@
-import json
-import os
 import boto3
-import uuid
-from datetime import datetime
-
-dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table(os.environ['TRANSACTIONS_TABLE'])
+import os
 
 def lambda_handler(event, context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table(os.environ['TRANSACTIONS_TABLE'])
+    # ...rest of your code
+
     try:
         body = json.loads(event['body'])
         transaction_id = str(uuid.uuid4())
