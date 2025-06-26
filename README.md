@@ -1,5 +1,7 @@
 
 # 💸 fintech-payments-sim-2024 – *AWS Serverless, CI/CD, Security, Real-World DevOps*
+![CI/CD Pipeline](https://github.com/doyindevops/fintech-payments-sim-2024/actions/workflows/ci-cd.yml/badge.svg)
+
 
 > **A true-to-life fintech payments API, fully serverless on AWS, built and shipped with CI/CD, real infrastructure-as-code, and shift-left security.
 > This isn’t a demo. It’s the actual automation and reliability you’d expect from a cloud-native, production-grade system.**
