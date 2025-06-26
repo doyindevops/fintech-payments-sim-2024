@@ -63,7 +63,7 @@ This project simulates what a modern fintech system actually needs:
 ---
 
 ##  Architecture
-
+![architecture](IMAGES/architecture.jpg)
 **Lambda (Python) ↔️ API Gateway ↔️ DynamoDB**  
 *All automated via SAM. Artifacts in S3. Monitoring with CloudWatch. Security in the CI/CD.*
 
