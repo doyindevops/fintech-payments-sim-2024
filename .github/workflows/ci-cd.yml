@@ -1,6 +1,11 @@
 name: CI/CD Pipeline
 
-on: [push, pull_request]
+on:
+  # Temporarily disabling automatic triggers.
+  # Uncomment the lines below to re-enable push and pull_request triggers.
+  # push:
+  # pull_request:
+  workflow_dispatch:
 
 jobs:
   build-test:
