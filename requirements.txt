@@ -1,4 +1,6 @@
 boto3
 pytest
 requests
+# Author: Doyin Ekong (@doyindevops)
+# Repo: https://github.com/doyindevops/logistics-tracking-platform
 
