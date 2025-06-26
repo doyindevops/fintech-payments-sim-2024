@@ -49,112 +49,112 @@ Images are referenced as `./images/FILENAME.png`—just copy your images into th
 
 ### 1. CI/CD Pipeline Overview
 
-![CI/CD UI](./images/CICD%20UI.png)
+![CI/CD UI](images/CICD%20UI.png)
 *Shows the whole GitHub Actions workflow with build-test, deploy, and security scan.*
 
 ---
 
 ### 2. CloudFormation Events
 
-![CloudFormation Events](./images/CLOUDFORMATION%20EVENTS.png)
+![CloudFormation Events](images/CLOUDFORMATION%20EVENTS.png)
 *Proof of all AWS resource creations and status events.*
 
 ---
 
 ### 3. CloudFormation Stacks
 
-![CloudFormation Stacks](./images/CLOUFORMATION.png)
+![CloudFormation Stacks](images/CLOUFORMATION.png)
 *All deployed stacks visible and trackable.*
 
 ---
 
 ### 4. CloudWatch Logging
 
-![CloudWatch](./images/cludwatch.png)
+![CloudWatch](images/cludwatch.png)
 *Lambda logs are visible and searchable in CloudWatch for observability and debugging.*
 
 ---
 
 ### 5. Successful Deploy in CI/CD
 
-![Deploy with SAM in CI](./images/DEPLOY%20WITH%20SAM%20CICD%20SUCCESS.png)
+![Deploy with SAM in CI](images/DEPLOY%20WITH%20SAM%20CICD%20SUCCESS.png)
 *Deployment job completes; you see API endpoint outputs and stack info.*
 
 ---
 
 ### 6. DynamoDB Table
 
-![DynamoDB Table](./images/DYNAMODB.png)
+![DynamoDB Table](images/DYNAMODB.png)
 *Table structure and status as provisioned for transactions.*
 
 ---
 
 ### 7. Lambda UI
 
-![Lambda Function](./images/lambda%20ui.png)
+![Lambda Function](images/lambda%20ui.png)
 *Lambda payment handler function, as deployed in AWS.*
 
 ---
 
 ### 8. API Gateway Resource
 
-![API Gateway](./images/API%20GATEWAAY.png)
+![API Gateway](images/API%20GATEWAAY.png)
 *API resource and endpoint for payments.*
 
 ---
 
 ### 9. API Gateway Stages
 
-![API Gateway Stages](./images/APIGATEWAY%20STAGES.png)
+![API Gateway Stages](images/APIGATEWAY%20STAGES.png)
 *Stage-level deployment, with live invoke URL.*
 
 ---
 
 ### 10. Build & Test Passing
 
-![Build-Test Passing](./images/BUILDTEST-CICD.png)
+![Build-Test Passing](images/BUILDTEST-CICD.png)
 *Green check = tests pass before any deploy.*
 
 ---
 
 ### 11. SAM Build (Terminal Output)
 
-![SAM Build 2](./images/sam%20build%202.png)
+![SAM Build 2](images/sam%20build%202.png)
 *`sam build` shows Lambda and template packaged, ready to ship.*
 
 ---
 
 ### 12. SAM Build (Step View)
 
-![SAM Build](./images/SAM%20BUILD.png)
+![SAM Build](images/SAM%20BUILD.png)
 *Full build process with all resources and layers bundled.*
 
 ---
 
 ### 13. SAM Deploy (Guided)
 
-![SAM Deploy Guided](./images/sam-deploy-guided.png)
+![SAM Deploy Guided](images/sam-deploy-guided.png)
 *Deploy parameters chosen step-by-step for reproducibility.*
 
 ---
 
 ### 14. Successful Transaction Output
 
-![Successful Transaction](./images/successful%20transaction.png)
+![Successful Transaction](images/successful%20transaction.png)
 *API call returns status and a unique transaction\_id.*
 
 ---
 
 ### 15. DynamoDB: Transaction Persisted
 
-![DynamoDB Transaction Data](./images/transaction%20data%20in%20DYNAMODB.png)
+![DynamoDB Transaction Data](images/transaction%20data%20in%20DYNAMODB.png)
 *You can see your API call resulted in a real DB write.*
 
 ---
 
 ### 16. OWASP ZAP Security Scan
 
-![OWASP ZAP Scan](./images/OWASP%20ZAP%20SCAN.png)
+![OWASP ZAP Scan](images/OWASP%20ZAP%20SCAN.png)
 *Security scan as part of CI/CD.
 403 error? That’s good—it means your API isn’t wide open to the world (API key required).*
 
@@ -162,21 +162,21 @@ Images are referenced as `./images/FILENAME.png`—just copy your images into th
 
 ### 17. Production API Output
 
-![Prod Pay Output](./images/PROD%20PAY%20OUTPUT.png)
+![Prod Pay Output](images/PROD%20PAY%20OUTPUT.png)
 *Shows real output (or error) from the deployed API in production.*
 
 ---
 
 ### 18. S3 Bucket: Deployed Templates
 
-![S3 Templates](./images/S3%20BUCKET%20TEMPLATES.png)
+![S3 Templates](images/S3%20BUCKET%20TEMPLATES.png)
 *SAM CLI manages all deployment artifacts for rollback, audit, and reproducibility.*
 
 ---
 
 ### 19. S3 Bucket: Artifact List
 
-![S3 Bucket](./images/S3%20BUCKET.png)
+![S3 Bucket](images/S3%20BUCKET.png)
 *Versioned artifacts in S3, fully managed by AWS SAM.*
 
 ---
